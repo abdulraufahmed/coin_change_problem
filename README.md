@@ -1,5 +1,5 @@
 # coin_change_problem
 Code of coin change problem : 
-The code of coin change in very simple to understand.
-There is no loop used because it make program running time geater than constant.
-The running time of this code is O(1) which means no running time is 'n' or linear. 
+There is 2 code written in c++ for coin change problem .
+one is with while loop and other one is without loop.
+Code have simple one input of Amount and then output will be the change of given amount.
