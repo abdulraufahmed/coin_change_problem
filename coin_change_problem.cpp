@@ -1,32 +1,78 @@
-#include<iostream> 
-//only use input output library
-//there is no use of other library
+#include<iostream>
 using namespace std;
-int main(){
-	int a;
-       
-	cout << "Enter the amount:"; 
-	cin >> a; //input from user to break the amount into highest amount change
-        cout << "you will need " << a / 5000 << " of 5000 note" << endl;
-	a = a % 5000;
-        cout << "you will need " << a / 1000 << " of 1000 note" << endl;
-	a = a % 1000;
-	cout << "you will need " << a / 500 << " of 500 note" << endl;
-	a = a % 500;
-	cout << "you will need " << a / 100 << " of 100 note" << endl;
-	a = a % 100;
-	cout << "you will need " << a / 50 << " of 50 note" << endl;
-	a = a % 50;
-	cout << "you will need " << a / 20 << " of 20 note" << endl;
-	a = a % 20;
-	cout << "you will need " << a / 10 << " of 10 note" << endl;
-	a = a % 10;
-	cout << "you will need " << a / 5 << " of 5 coin" << endl;
-	a = a % 5;
-	cout << "you will need " << a / 2 << " of 2 coin" << endl;
-	a = a % 2;
-	cout << "you will need " << a / 1 << " of 1 coin" << endl;
-	system("pause"); //to stop the screen for see overall change
-	return 0;
+void change(int oa, int ra, int coins[]){ //function of making change of given amount
+	if (oa % 100 < oa) // original amount greater than modulas 100 of original amount
+	{
+		coins[6] = (oa / 100); //divisible original amount save in array 
+		ra= oa % 100; // modulas 100 of original amount equal to remaining amount
+		oa = ra; //remaining amount equal to original amount
+	}
+	if ((oa % 50) < oa)
+	{
+		coins[5] = (oa / 50);
+		ra = oa % 50;
+		oa = ra;
+	}
+	if ((oa % 20) < oa)
+	{
+		coins[4] = (oa / 20);
+		ra = oa % 20;
+		oa = ra;
+	}
+	if ((oa % 10) < oa)
+	{
+		coins[3] = (oa / 10);
+		ra = oa % 10;
+		oa = ra;
+	}
+	if ((oa % 5) < oa)
+	{
+		coins[2] = (oa / 5);
+		ra = oa % 5;
+		oa = ra;
+	}
+	if ((oa % 2) < oa)
+	{
+		coins[1] = (oa / 2);
+		ra = oa % 2;
+		oa = ra;
+	}
+	if ((oa % 1) < oa)
+	{
+		coins[0] = (oa / 1);
+		ra = oa % 1;
+	}
 }
+void showchange(int arr[]){ // function for displaying amount to be change
 
+	if (arr[6] > 0)
+		cout << "Number of 100 note: " << + arr[6] <<endl;
+	if (arr[5] > 0)
+		cout << "Number of 50 note: " << +arr[5] << endl;
+	if (arr[4] > 0)
+		cout << "Number of 20 note: " << +arr[4] << endl;
+	if (arr[3] > 0)
+		cout << "Number of 10 coin: " << +arr[3] << endl;
+	if (arr[2] > 0) 
+		cout << "Number of 5 coin: " << +arr[2] << endl;
+	if (arr[1] > 0)
+		cout << "Number of 2 coin: " << +arr[1] << endl;
+	if (arr[0] > 0)
+		cout << "Number of 1 coin: " << +arr[0] << endl;
+}
+int main(){
+	int tc;
+	int ra;
+	int oa = 0;
+	int b;
+	cout << "Enter the number of coin you want to change:"<< endl;
+	cin >> oa; // input amount to be change
+	tc = oa;
+	ra = 0;
+	int coins[7]; // initialize array of length 7
+	change(oa, ra, coins); // call to change function
+	cout << "The change of given input will be:" << endl;
+	showchange(coins); //call to showchange function
+	cin >> b;
+
+}
