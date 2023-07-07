@@ -49,8 +49,11 @@ void showchange(int arr[]){ // function for displaying amount to be change
 		cout << "Number of 100 note: " << + arr[6] <<endl;
 	if (arr[5] > 0)
 		cout << "Number of 50 note: " << +arr[5] << endl;
-	if (arr[4] > 0)
+	if (arr[4] > 0){
+	    if (arr[4] > 10)
+	    arr[4] = 0;
 		cout << "Number of 20 note: " << +arr[4] << endl;
+	}
 	if (arr[3] > 0)
 		cout << "Number of 10 coin: " << +arr[3] << endl;
 	if (arr[2] > 0) 
@@ -65,14 +68,20 @@ int main(){
 	int ra;
 	int oa = 0;
 	int b;
+	jump:
 	cout << "Enter the number of coin you want to change must be greater than 100:"<< endl;
 	cin >> oa; // input amount to be change
+	if (oa < 100){
+    cout << "your Entered number is less than 100:"<< endl;
+    goto jump;
+	}
 	tc = oa;
 	ra = 0;
 	int coins[7]; // initialize array of length 7
 	change(oa, ra, coins); // call to change function
 	cout << "The change of given input will be:" << endl;
 	showchange(coins); //call to showchange function
+	
 	cin >> b;
-
+    
 }
