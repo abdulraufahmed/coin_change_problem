@@ -65,7 +65,7 @@ int main(){
 	int ra;
 	int oa = 0;
 	int b;
-	cout << "Enter the number of coin you want to change:"<< endl;
+	cout << "Enter the number of coin you want to change must be greater than 100:"<< endl;
 	cin >> oa; // input amount to be change
 	tc = oa;
 	ra = 0;
