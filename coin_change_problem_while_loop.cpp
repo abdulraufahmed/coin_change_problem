@@ -2,23 +2,43 @@
 //only use input output library
 //there is no use of other library
 using namespace std;
-int main(){
-	int a;
+void myFunction(int num) {
+	   
        int count;
        int notes[]={5000,1000,500,100,50,20,10,5,2,1};
        int i=0;
-	cout << "Enter the amount:"; 
-	cin >> a; //input from user to break the amount into highest amount change
-	while(a != 0){
+       
+	if (std::cin.fail()){
+	cout << "Your given input is not number" << endl;
+	}
+	else{
+	    while(num != 0){
 		
-	count = a / notes[i] ;
+	    count = num / notes[i] ;
         cout << "you will need " <<count << " of "<<notes[i]<<" note" << endl;
         
-	a = a % notes[i];
+	    num = num % notes[i];
 	
-	i++;
+    	i++;
+	    }
 	}
-	
-	system("pause"); //to stop the screen for see overall change
+	cout << "Do you want to Check again Y N:";
+    char choise;
+	cin >> choise; 
+	if(choise == 'Y' || choise == 'y'){
+	int b=0;
+	cout << "Enter the amount:" ; 
+	cin >> b; //input from user to highest amount change
+    myFunction(b);	
+	}
+	else
+    cout <<"End !!";
+}
+int main(){
+    int a = 0;
+    int c = 0;
+   	cout << "Enter the amount:" ; 
+	cin >> a; //input from user to highest amount change
+	myFunction(a);
 	return 0;
 }
